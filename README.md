@@ -1,46 +1,74 @@
-# Predicting Tennis Upsets with Machine Learning
+# Tennis Upset Prediction Model 🎾
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/shraavb/Predicting-Tennis-Upsets-with-Machine-Learning/HEAD)
 
-Predicting when lower-ranked tennis players defeat higher-ranked opponents using machine learning on ATP and WTA match data (2000-2025).
+## Problem Statement
+In professional tennis, predicting upsets (matches where a lower-ranked player defeats a higher-ranked one) is a challenging problem. This project builds a machine learning model to forecast the likelihood of an upset based on historical match and player statistics.
 
-## Overview
+## Dataset
+- **Source**: [ATP/WTA Tennis Data](https://github.com/JeffSackmann/tennis_atp) from Jeff Sackmann's repository
+- **Coverage**: ATP and WTA tours from 2000-2025 (~138,000 matches)
+- **Features**: Player rankings, match stats, surface type, tournament level, head-to-head records, and recent form
+- **Data preprocessing**: Steps included in `notebooks/` and `src/data_loader.py`
 
-This project analyzes tennis match data to predict upsets - when underdogs beat favorites. We use features like ranking differences, head-to-head records, recent form, and tournament context to build predictive models.
+## Approach / Model
+- **Exploratory Data Analysis (EDA)** in Jupyter Notebooks (`/notebooks`)
+- **Feature engineering** for player statistics, rankings, and surface-adjusted performance
+- **Model training** using algorithms: Logistic Regression, Random Forest, XGBoost, and Neural Networks
+- **Evaluation metrics**: Accuracy, Precision, Recall, F1 Score, ROC-AUC
 
-## Key Results
+## Results
+- **Best model**: **XGBoost** with 67% recall for upsets and 0.78 ROC-AUC
+- **Upset rate**: 33% of matches result in upsets
+- **Key predictors**: Ranking difference, head-to-head record, recent form, tournament level
 
-- **Upset Rate**: 33% of matches result in upsets
-- **Best Model**: XGBoost achieves 67% recall for upsets
-- **Top Features**: Ranking difference, head-to-head record, recent form
+## How to Run
 
-## Models Tested
+1. **Clone the repo**:
+   ```bash
+   git clone https://github.com/shraavb/Predicting-Tennis-Upsets-with-Machine-Learning.git
+   cd Predicting-Tennis-Upsets-with-Machine-Learning
+   ```
 
-- Logistic Regression
-- Random Forest  
-- XGBoost
-- Neural Network
-
-## Usage
-
-1. Install dependencies:
+2. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
 
-2. Run the notebook:
+3. **Run notebooks**:
    ```bash
-   jupyter notebook Final_Writeup.ipynb
+   jupyter notebook notebooks/tennis_upset_prediction.ipynb
    ```
 
-## Files
+4. **Or run scripts**:
+   ```bash
+   python src/model.py
+   ```
 
-- `Final_Writeup.ipynb`: Complete analysis
-- `requirements.txt`: Dependencies
-- `.gitignore`: Git exclusions
+## Project Structure
+```
+tennis-upset-prediction/
+├── data/                 # Raw and processed data
+├── notebooks/            # Jupyter notebooks for EDA and analysis
+│   └── tennis_upset_prediction.ipynb
+├── src/                  # Python scripts
+│   ├── data_loader.py    # Data loading and preprocessing
+│   ├── features.py       # Feature engineering
+│   ├── model.py          # Model training
+│   └── evaluate.py       # Model evaluation
+├── requirements.txt      # Dependencies
+├── README.md             # Project documentation
+└── .gitignore            # Git exclusions
+```
+
+## Future Work
+- Hyperparameter tuning with Optuna
+- Incorporating live match data for real-time predictions
+- Deploying as a web app for interactive use
+- Advanced ensemble methods and feature selection
 
 ## Video Presentation
-
 [Watch the project presentation](https://drive.google.com/file/d/1jVA_WVHbcvK_gmuwNMx9xFhV_LMwHJ34/view?usp=share_link)
 
+## License
 CIS 545 Final Project - University of Pennsylvania
