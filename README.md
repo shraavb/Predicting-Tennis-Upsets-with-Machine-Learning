@@ -1,5 +1,7 @@
 # Predicting Tennis Upsets with Machine Learning
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/shraavb/Predicting-Tennis-Upsets-with-Machine-Learning/HEAD)
+
 Predicting when lower-ranked tennis players defeat higher-ranked opponents using machine learning on ATP and WTA match data (2000-2025).
 
 ## Overview
